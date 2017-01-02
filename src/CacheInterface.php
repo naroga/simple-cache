@@ -29,7 +29,8 @@ interface CacheInterface
      * @return bool True on success and false on failure.
      *
      * @throws \Psr\SimpleCache\InvalidArgumentException
-     *   MUST be thrown if the $key string is not a legal value.
+     *   MUST be thrown if the $key string is not a legal value,
+     *   or if $ttl is neither an integer or a \DateInterval object.
      */
     public function set($key, $value, $ttl = null);
 
@@ -91,7 +92,8 @@ interface CacheInterface
      *
      * @throws \Psr\SimpleCache\InvalidArgumentException
      *   MUST be thrown if $keys is neither an array nor a Traversable,
-     *   or if any of the $keys are not a legal value.
+     *   if any of the $keys are not a legal value 
+     *   or if $ttl is neither an integer or a \DateInterval object.
      */
     public function deleteMultiple($keys);
 
